@@ -1,0 +1,72 @@
+.all {
+
+    position: absolute;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+
+    .filter {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 50px;
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-items: center;
+            gap: 10px;
+
+            button {
+                all: unset;
+                cursor: pointer;
+                border: 1px solid teal;
+                padding: 8px;
+                border-radius: 18px;
+                width: 100px;
+                height: 40px;
+                transition: .3s all ease;
+                text-align: center;
+
+                &:focus{
+                    background-color: teal;
+                    color: white;
+                }
+
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media screen and (max-width: 834px) {
+    .all{
+
+        .filter{
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: 652px) {
+    .all{
+        .filter{
+            .buttons{
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
+}

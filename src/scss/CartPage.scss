@@ -1,0 +1,16 @@
+.all {
+    .total{
+        margin-top: 20px;
+        width: 100vh;
+        font-size: 30px;
+        text-align: right;
+        font-weight: bold;
+    }
+    .cart-cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+}

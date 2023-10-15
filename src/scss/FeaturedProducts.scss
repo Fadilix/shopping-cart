@@ -1,0 +1,31 @@
+.featured {
+
+    .more {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 9vw;
+        width: 100vw;
+    
+        h2{
+            font-size: 3.5vw;
+            margin-bottom: 40px;
+        }
+    }
+
+    .cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .featured{
+        .more{
+            h2{
+                font-size: 30px;
+            }
+        }
+    }
+}

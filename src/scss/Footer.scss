@@ -1,0 +1,49 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    div {
+
+        .github {
+            all: unset;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: .3s all ease;
+
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            &:hover {
+                color: aqua;
+                cursor: pointer;
+
+            }
+        }
+
+        text-align: center;
+
+        p {
+            margin: 5px 0;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
