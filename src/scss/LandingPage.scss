@@ -50,6 +50,9 @@
             position: relative;
             overflow: hidden;
             transition: .3s all ease;
+            a{
+                all: unset;
+            }
 
             &::after {
                 content: "";
