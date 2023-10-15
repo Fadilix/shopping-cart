@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartPage from './pages/CartPage';
 import ShopPage from './pages/ShopPage';
 import { Toaster } from "react-hot-toast"
+import PageNotFound from './pages/PageNotFound';
 
 const App: React.FC = () => {
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Route path="/" Component={LandingPage} />
           <Route path='/cart' Component={CartPage} />
           <Route path="/shop" Component={ShopPage} />
+          <Route path="/*" Component={PageNotFound}/>
         </Routes>
       </BrowserRouter>
     </div >
