@@ -1,4 +1,4 @@
-# ChickNook
+# ChickNook - The Odin Project
 ChicNook is a modern e-commerce web application built using React as part of an assignment from The Odin Project. The project aims to deliver a seamless and stylish shopping experience, allowing users to explore and purchase chic and trendy products.
 ## [live preview here](https://shopping-cart-nu-dun.vercel.app/)
 #### Status of the project: ongoing
