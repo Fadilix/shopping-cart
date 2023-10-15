@@ -4,6 +4,7 @@ import FeaturedProducts from '../components/FeaturedProducts';
 import lp2 from "../assets/lp2.jpg";
 import "../scss/LandingPage.scss";
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -45,7 +46,7 @@ const LandingPage: React.FC = () => {
                         Warm Styles, Cool prices.
                     </h1>
                     <p>Step into a world of timeless elegance and curated treasures. In this emporium of dreams, each item has a story to tell, a whisper of craftsmanship and a touch of history. Let your journey through our shop be a delightful adventure, where every purchase is a chapter added to your own story</p>
-                    <button>Shop Now</button>
+                    <button><Link to="/shop"> Shop Now</Link></button>
                 </div>
             </section>
             <div>
