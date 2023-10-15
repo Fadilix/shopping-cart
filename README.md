@@ -1,5 +1,6 @@
-# ChickNook
+# ChickNook - The Odin Project
 ChicNook is a modern e-commerce web application built using React as part of an assignment from The Odin Project. The project aims to deliver a seamless and stylish shopping experience, allowing users to explore and purchase chic and trendy products.
+## [live preview here](https://shopping-cart-nu-dun.vercel.app/)
 #### Status of the project: ongoing
 ## Screenshot
 ![image](https://github.com/Fadilix/shopping-cart/assets/121851593/29707050-05e3-45dd-9d93-f07504361baa)
@@ -37,7 +38,7 @@ ChicNook is a modern e-commerce web application built using React as part of an 
 To run the application locally, follow these steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/chicnook.git
+   git clone https://github.com/Fadilix/shopping-cart.git
    ```
 2. Install the dependencies
    ```bash
