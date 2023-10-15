@@ -37,7 +37,7 @@ ChicNook is a modern e-commerce web application built using React as part of an 
 To run the application locally, follow these steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/chicnook.git
+   git clone https://github.com/Fadilix/shopping-cart.git
    ```
 2. Install the dependencies
    ```bash
