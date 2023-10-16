@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar';
 import { useCart } from '../contexts/CartContext';
 import '../scss/CartPage.scss';
 import toast from 'react-hot-toast';
-import { useTotalPrice } from '../contexts/totalPriceContext';
+import { useTotalPrice } from '../contexts/TotalPriceContext';
 
 const CartPage: React.FC = () => {
     const { totalItems, updateTotalItems } = useCart();
