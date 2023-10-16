@@ -3,20 +3,28 @@ import axios from 'axios';
 import { Image } from '../interfaces/Image';
 import Card from '../components/Card';
 import NavBar from '../components/NavBar';
+import { useCart } from '../contexts/CartContext'; 
 import '../scss/ShopPage.scss';
+import toast from 'react-hot-toast';
 
 const ShopPage: React.FC = () => {
+    const { updateTotalItems } = useCart();
     const [images, setImages] = useState<Image[]>([]);
 
     const fetchProductsByCategory = async (category: string) => {
-        if (category === 'all') {
-            // Fetch all products
-            const { data } = await axios.get<Image[]>('https://fakestoreapi.com/products/');
-            setImages(data);
-        } else {
-            // Fetch products by category
-            const { data } = await axios.get<Image[]>(`https://fakestoreapi.com/products/category/${category}`);
-            setImages(data);
+        try {
+            let response;
+            if (category === 'all') {
+                // Fetch all products
+                response = await axios.get<Image[]>('https://fakestoreapi.com/products/');
+            } else {
+                // Fetch products by category
+                response = await axios.get<Image[]>(`https://fakestoreapi.com/products/category/${category}`);
+            }
+
+            setImages(response.data);
+        } catch (error) {
+            console.error('Error fetching products:', error);
         }
     };
 
@@ -25,8 +33,20 @@ const ShopPage: React.FC = () => {
         fetchProductsByCategory('all');
     }, []);
 
-    const handleAddToCart = () => {
-        // Implement your add to cart logic here
+    const handleAddToCart = (item: Image) => {
+        const cartData = localStorage.getItem('cartData');
+        const parsedData: Image[] = JSON.parse(cartData || '[]');
+
+        //checking if the item is already in or not
+        const isImageInCart = parsedData.some((newItem) => newItem.id === item.id)
+        if (!isImageInCart) {
+            const updatedData = [...parsedData, item];
+            localStorage.setItem('cartData', JSON.stringify(updatedData));
+            updateTotalItems(updatedData.length);
+            toast.success('Item added to cart');
+        } else {
+            toast.error("Already in the cart")
+        }
     };
 
     return (
@@ -47,7 +67,7 @@ const ShopPage: React.FC = () => {
                     {images.map((product) => (
                         <Card
                             key={product.id}
-                            handleAddToCart={handleAddToCart}
+                            handleAddToCart={() => handleAddToCart(product)}
                             image={product.image}
                             price={product.price}
                             text='Add to cart'

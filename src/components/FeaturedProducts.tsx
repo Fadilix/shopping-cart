@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import "../scss/FeaturedProducts.scss";
 import toast from "react-hot-toast";
+import { useCart } from "../contexts/CartContext";
 
 interface Image {
     id: number;
@@ -14,7 +15,6 @@ interface Image {
 const FeaturedProducts: React.FC = () => {
     const fakeStoreApi = "https://fakestoreapi.com/products/";
     const [images, setImages] = useState<Image[]>([]);
-    const [selectedImages, setSelectedImages] = useState<Image[]>([]);
 
     useEffect(() => {
         const fetchStoreImages = async () => {
@@ -25,26 +25,23 @@ const FeaturedProducts: React.FC = () => {
         fetchStoreImages();
     }, []);
 
-    // Initialize Local Storage if not already set
-    useEffect(() => {
-        const storedImages = localStorage.getItem("cartData");
-        if (!storedImages) {
-            localStorage.setItem("cartData", JSON.stringify([]));
-        }
-    }, []);
-
-    // Update Local Storage after selectedImages state changes
-    useEffect(() => {
-        localStorage.setItem("cartData", JSON.stringify(selectedImages));
-    }, [selectedImages]);
+    const { updateTotalItems } = useCart();
 
     // adding an image to the cart
-    const handleAddtoCart = (image: Image) => {
-        if (!selectedImages.includes(image)) {
-            toast.success("Item added")
-            setSelectedImages(prevImages => [...prevImages, image]);
-        } else{
-            toast.error("Already in the cart")
+    const handleAddToCart = (image: Image) => {
+        const cartData = localStorage.getItem("cartData");
+        const parsedData: Image[] = JSON.parse(cartData || "[]");
+
+        // Checking if an image with the same id is already in the cart
+        const isImageInCart = parsedData.some((item) => item.id === image.id);
+
+        if (!isImageInCart) {
+            const updatedData = [...parsedData, image];
+            localStorage.setItem("cartData", JSON.stringify(updatedData));
+            toast.success("Item added to cart");
+            updateTotalItems(updatedData.length);
+        } else {
+            toast.error("Already in the cart");
         }
     };
 
@@ -61,7 +58,7 @@ const FeaturedProducts: React.FC = () => {
                             price={image.price}
                             image={image.image}
                             title={image.title}
-                            handleAddToCart={() => handleAddtoCart(image)}
+                            handleAddToCart={() => handleAddToCart(image)}
                         />
                     </div>
                 ))}

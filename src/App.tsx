@@ -8,7 +8,6 @@ import { Toaster } from "react-hot-toast"
 import PageNotFound from './pages/PageNotFound';
 
 const App: React.FC = () => {
-
   return (
     <div>
       <Toaster position='top-center' />
@@ -17,7 +16,7 @@ const App: React.FC = () => {
           <Route path="/" Component={LandingPage} />
           <Route path='/cart' Component={CartPage} />
           <Route path="/shop" Component={ShopPage} />
-          <Route path="/*" Component={PageNotFound}/>
+          <Route path="/*" Component={PageNotFound} />
         </Routes>
       </BrowserRouter>
     </div >

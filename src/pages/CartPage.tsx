@@ -5,29 +5,35 @@ import NavBar from '../components/NavBar';
 import { useCart } from '../contexts/CartContext';
 import '../scss/CartPage.scss';
 import toast from 'react-hot-toast';
+import { useTotalPrice } from '../contexts/totalPriceContext';
 
 const CartPage: React.FC = () => {
     const { totalItems, updateTotalItems } = useCart();
-
+    const { totalPrice, updateTotalPrice } = useTotalPrice();
     const storedData = localStorage.getItem('cartData');
     const parsedData: Image[] = JSON.parse(storedData || '[]');
     const [data, setData] = useState(parsedData);
-
+    const price = data.reduce((accumulator, product) => accumulator + product.price, 0);
     useEffect(() => {
-        localStorage.setItem('cartData', JSON.stringify(data));
-        updateTotalItems(parsedData.length);
-    }, [data, updateTotalItems]);
+        localStorage.setItem("price", JSON.stringify(price))
+        updateTotalPrice(price)
+        console.log(price);
+    }, [data])
 
     const handleDelete = (item: any) => {
+        localStorage.setItem('cartData', JSON.stringify(data.filter((d) => d.id !== item.id)));
+        updateTotalItems(parsedData.length);
         setData(data.filter((d) => d.id !== item.id));
         toast.success('Item deleted successfully');
+        updateTotalItems(data.length - 1)
     };
 
     return (
         <div className="all">
             <NavBar />
             <div className="total">
-                <p>Total Items in Cart: {totalItems}</p>
+                <p>Total Items: {totalItems}</p>
+                <p>Total price: {totalPrice.toFixed(2)}</p>
             </div>
             <div className="cart-cards">
                 {data.map((item) => (
