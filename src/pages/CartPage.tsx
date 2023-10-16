@@ -33,7 +33,7 @@ const CartPage: React.FC = () => {
             <NavBar />
             <div className="total">
                 <p>Total Items: {totalItems}</p>
-                <p>Total price: {totalPrice.toFixed(2)}</p>
+                <p>Total price: ${totalPrice.toFixed(2)}</p>
             </div>
             <div className="cart-cards">
                 {data.map((item) => (
