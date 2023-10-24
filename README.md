@@ -1,7 +1,6 @@
 # ChickNook - The Odin Project
 ChicNook is a modern e-commerce web application built using React as part of an assignment from The Odin Project. The project aims to deliver a seamless and stylish shopping experience, allowing users to explore and purchase chic and trendy products.
 ## [live preview here](https://shopping-cart-nu-dun.vercel.app/)
-#### Status of the project: ongoing
 ## Screenshot
 ![image](https://github.com/Fadilix/shopping-cart/assets/121851593/29707050-05e3-45dd-9d93-f07504361baa)
 
@@ -21,16 +20,17 @@ ChicNook is a modern e-commerce web application built using React as part of an 
 - Filterable products:
 #
 ![image](https://github.com/Fadilix/shopping-cart/assets/121851593/806c0d47-94e0-4b3d-bc15-7e364a7cc62d)
-#
-- Marquee:
-#
-<img src="https://github.com/Fadilix/shopping-cart/assets/121851593/e0527db8-1e59-4c0f-b148-c1993d78ca30" width="100%" />
 
-- Cart with the number of elements added:
 
 #
 
-![image](https://github.com/Fadilix/shopping-cart/assets/121851593/f32f7c2f-e4b3-440b-a152-91956a7b91ec)
+
+- Cart with total of items and total price:
+
+
+#
+
+![image](https://github.com/Fadilix/shopping-cart/assets/121851593/095df35f-2c9b-45fe-9c8c-0314c1bcbbc0)
 
 #
 
