@@ -1,6 +1,5 @@
-
-
 .all {
+
     .total {
         display: flex;
         justify-content: space-between;
@@ -14,6 +13,25 @@
         margin-inline: 20px;
     }
 
+    .checkout {
+        all: unset;
+        text-align: center;
+        margin-top: 60px;
+
+        .buy-items {
+            all: unset;
+            cursor: pointer;
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 8px;
+            transition: .3s all ease;
+
+            &:hover{
+                letter-spacing: 2px;
+            }
+        }
+    }
+
     .cart-cards {
         display: flex;
         flex-wrap: wrap;
@@ -24,8 +42,8 @@
 }
 
 @media screen and (max-width : 768px) {
-    .all{
-        .total{
+    .all {
+        .total {
             font-size: 5vw;
         }
     }

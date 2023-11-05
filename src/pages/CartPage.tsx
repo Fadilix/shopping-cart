@@ -28,12 +28,23 @@ const CartPage: React.FC = () => {
         updateTotalItems(data.length - 1)
     };
 
+    const handleCheckout = () => {
+        toast.error("This service is not available for the moment", {
+            style: {
+                textAlign: "center"
+            }
+        })
+    }
+
     return (
         <div className="all">
             <NavBar />
             <div className="total">
                 <p>Total Items: {totalItems}</p>
                 <p>Total price: ${totalPrice.toFixed(2)}</p>
+            </div>
+            <div className="checkout">
+                <button className='buy-items' onClick={handleCheckout}>Checkout</button>
             </div>
             <div className="cart-cards">
                 {data.map((item) => (
